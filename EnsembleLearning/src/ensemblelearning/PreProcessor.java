@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ensemblelearning;
 
 import java.io.BufferedReader;
@@ -177,16 +172,20 @@ class PreProcessor {
         data.setClassIndex(data.numAttributes() - 1);
         BufferedReader br = new BufferedReader(new FileReader(this.trainingFile));
         String line;
+        String[] tokens;
         while ((line = br.readLine()) != null) {
-            String[] tokens = line.split(",");
+        	tokens = line.split(",");
             double[] values = new double[tokens.length];
+            
+            
             for (int i = 0; i < tokens.length; i++) {
                 try {
-                    if (tokens[i].startsWith("\"")) {
-                        tokens[i] = tokens[i].substring(1, tokens[i].length());
-                    } else if (tokens[i].endsWith("\"")) {
-                        tokens[i] = tokens[i].substring(0, tokens[i].length() - 1);
-                    }
+//                    if (tokens[i].startsWith("\"")) {
+//                        tokens[i] = tokens[i].substring(1, tokens[i].length());
+//                    } else if (tokens[i].endsWith("\"")) {
+//                        tokens[i] = tokens[i].substring(0, tokens[i].length() - 1);
+//                    }
+            
                     values[i] = Double.parseDouble(tokens[i].trim());
                 } catch (NumberFormatException e) {
                     switch (i) {

@@ -29,5 +29,11 @@ public class Driver {
         
         DecisionTree dt = new DecisionTree(new_training_file,new_test_file);
         dt.DTClassify();
+        
+        AdaBoost ab = new AdaBoost(new_training_file,new_test_file);
+        ab.AdaBoostDTClassify();
+        
+        BaggingMethod bag = new BaggingMethod(new_training_file,new_test_file);
+        bag.BaggingDTClassify();
     }
 }
